@@ -1,17 +1,12 @@
 #!/bin/sh
 
-# 检查参数数量
-if [ $# -lt 4 ]; then
-  echo "用法: bash script.sh <API_TOKEN> <ZONE_ID> <RECORD_ID> <RECORD_NAME> [PROXIED]"
-  exit 1
-fi
+# =========== 配置信息 ==========
+API_TOKEN="I-mzLdFD4BWQBR5w0nWB11ZjVp0B2jK8zH-ehVEY"
+ZONE_ID="6a6a82a82c8dec9990eee04f512fa955"
+RECORD_ID="a08ab7eecd19d26d7c775480be37fc42"
 
-# 位置参数
-API_TOKEN="$1"
-ZONE_ID="$2"
-RECORD_ID="$3"
-RECORD_NAME="$4"
-PROXIED="${5:-false}"  # 可选，默认 false
+RECORD_NAME="$1"
+PROXIED=false
 
 # 获取当前公网 IPv4 地址
 IP=$(curl -s ipv4.ip.sb)
